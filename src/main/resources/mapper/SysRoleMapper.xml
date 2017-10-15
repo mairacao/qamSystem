@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoyu.web.mapper.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.xiaoyu.web.model.SysRole">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="seq" jdbcType="TINYINT" property="seq" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+  </resultMap>
+
+
+	<select id="selectResourceIdListByRoleId" resultType="java.lang.Long" parameterType="java.lang.Long">
+		SELECT
+			t2.resource_id AS id
+		FROM
+			sys_role t1
+		LEFT JOIN sys_role_resource t2 ON t2.role_id = t1.id
+		WHERE
+			t1.id = #{id}
+	</select>
+
+    <select id="selectResourceListByRoleIdList" resultType="com.xiaoyu.web.model.SysResource" parameterType="List">
+		SELECT DISTINCT
+			t3.*
+		FROM
+			sys_role t1
+		LEFT JOIN sys_role_resource t2 ON t2.role_id = t1.id
+		LEFT JOIN sys_resource t3 ON t3.id = t2.resource_id
+        WHERE
+            t1.id in  
+            <foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
+                #{item.roleId}
+            </foreach>
+        AND t3.resource_type = 0
+        ORDER BY seq
+    </select>
+
+    <select id="selectResourceListByRoleId" resultType="java.util.HashMap" parameterType="java.lang.Long">
+		SELECT
+			t2.id,
+			t3.url
+		FROM
+			sys_role t1
+		LEFT JOIN sys_role_resource t2 ON t1.id = t2.role_id
+		LEFT JOIN sys_resource t3 ON t2.resource_id = t3.id
+		WHERE
+			t1.id = #{id}
+    </select>
+  
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoyu.web.mapper.QaProcessProductMapper">
+  <resultMap id="BaseResultMap" type="com.xiaoyu.web.model.QaProcessProduct">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="processpdu_id" jdbcType="INTEGER" property="processpduId" />
+    <result column="processpdu_name" jdbcType="VARCHAR" property="processpduName" />
+    <result column="property_id" jdbcType="INTEGER" property="propertyId" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_userid" jdbcType="INTEGER" property="createUserid" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="update_userid" jdbcType="INTEGER" property="updateUserid" />
+  </resultMap>
+</mapper>

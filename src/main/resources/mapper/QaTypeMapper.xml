@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoyu.web.mapper.QaTypeMapper">
+  <resultMap id="BaseResultMap" type="com.xiaoyu.web.model.QaType">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="type_id" jdbcType="BIGINT" property="typeId" />
+    <result column="type_name" jdbcType="VARCHAR" property="typeName" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_userid" jdbcType="BIGINT" property="createUserid" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="update_userid" jdbcType="BIGINT" property="updateUserid" />
+  </resultMap>
+</mapper>
