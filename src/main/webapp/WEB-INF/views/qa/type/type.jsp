@@ -17,7 +17,6 @@
             frozenColumns : [[
             	{ width : '100',  title : 'id',     	field : 'typeId', 		sortable : true },
             	{ width : '100',  title : '类别名称',	field : 'typeName', 	sortable : true },
-//                { width : '100',  title : '类别名称',	field : 'typeName', 	sortable : true },
 	            { field : 'action', title : '操作', width : 130,
 	                formatter : function(value, row, index) {
 	                    var str = '';
